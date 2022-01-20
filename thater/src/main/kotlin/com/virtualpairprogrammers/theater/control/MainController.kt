@@ -32,17 +32,15 @@ class MainController {
         bean.result = "Seat $selectedSeat is " + if (result) "available" else "booked"
         return ModelAndView("seatBooking", "bean", bean)
     }
-    @RequestMapping("bootstrap")
-    fun createInitialData() : ModelAndView {
-
-        val seats = theaterService.seats
-        seatRepository.saveAll(seats)
-
-        return homePage()
-    }
+//    @RequestMapping("bootstrap")
+//    fun createInitialData() : ModelAndView {
+//
+//        val seats = theaterService.seats
+//        seatRepository.saveAll(seats)
+//
+//        return homePage()
+//    }
 }
-
-
 
 class CheckAvailabilityBackingBean() {
     val seatNums = 1..36
