@@ -1,7 +1,7 @@
 package com.virtualpairprogrammers.theater.data
 
-import com.virtualpairprogrammers.theater.Domain.Performance
-import com.virtualpairprogrammers.theater.Domain.Seat
+import com.virtualpairprogrammers.theater.domain.Performance
+import com.virtualpairprogrammers.theater.domain.Seat
 import org.springframework.data.jpa.repository.JpaRepository
 
 interface SeatRepository : JpaRepository<Seat, Long>

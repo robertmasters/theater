@@ -1,4 +1,4 @@
-package com.virtualpairprogrammers.theater.Domain
+package com.virtualpairprogrammers.theater.domain
 
 import java.math.BigDecimal
 import javax.persistence.*

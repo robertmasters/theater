@@ -1,6 +1,6 @@
 package com.virtualpairprogrammers.theater.services
 
-import com.virtualpairprogrammers.theater.Domain.Seat
+import com.virtualpairprogrammers.theater.domain.Seat
 import org.springframework.stereotype.Service
 
 @Service

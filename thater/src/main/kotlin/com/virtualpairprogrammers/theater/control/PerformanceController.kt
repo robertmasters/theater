@@ -1,6 +1,6 @@
 package com.virtualpairprogrammers.theater.control
 
-import com.virtualpairprogrammers.theater.Domain.Performance
+import com.virtualpairprogrammers.theater.domain.Performance
 import com.virtualpairprogrammers.theater.data.PerformanceRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
