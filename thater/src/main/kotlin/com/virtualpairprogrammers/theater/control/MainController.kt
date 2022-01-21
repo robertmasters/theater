@@ -7,6 +7,7 @@ import com.virtualpairprogrammers.theater.domain.Performance
 import com.virtualpairprogrammers.theater.domain.Seat
 import com.virtualpairprogrammers.theater.services.BookingService
 import com.virtualpairprogrammers.theater.services.TheaterService
+import org.hibernate.annotations.Check
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -48,6 +49,9 @@ class MainController {
         val result =  bookingService.isSeatFree(selectedSeat, selectedPerformance)
         bean.available = result
 
+        if(!result) {
+            bean.booking = bookingService.findBooking(selectedSeat, selectedPerformance)
+        }
         val model = mapOf("bean" to bean,
             "performances" to performanceRepository.findAll(),
             "seatNums" to  1..36,
@@ -56,6 +60,13 @@ class MainController {
 //        bean.result = "Seat $selectedSeat is " + if (result) "available" else "booked"
         return ModelAndView("seatBooking", model)
     }
+    @RequestMapping(value = ["booking"], method = [RequestMethod.POST])
+    fun bookASeat(bean : CheckAvailabilityBackingBean) : ModelAndView {
+        val booking = bookingService.reserveSeat(bean.seat!!, bean.performance!!, bean.customerName)
+        return ModelAndView("bookingConfirmed", "booking", booking)
+    }
+
+
 //    @RequestMapping("bootstrap")
 //    fun createInitialData() : ModelAndView {
 //
